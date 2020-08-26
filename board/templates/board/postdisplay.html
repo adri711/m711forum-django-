@@ -1,0 +1,31 @@
+{% extends "board/base.html" %}
+{% block content %}
+
+<div class="container">
+<br><nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'forum-home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'forumdisplay' post.post_board.slug %}">{{post.post_board.title}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
+</ol></nav><br>
+{% if post %}
+<div class='container'>
+	<div class='card'>
+		<div class='card-body'>
+			<div class='row'>
+				<div class='col-md-2'>
+					<a href="#">{{post.author.username}}</a> <br> {{post.author.groups}} <br>
+					<img src='https://www.w3schools.com/howto/img_avatar.png' width=100 height=100>
+				</div>
+				<div class='col-md-9'>
+					<small>Written on {{post.release_date}}</small>
+					<hr>
+					{{post.content}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "board/base.html" %}
+{% block content %}
+
+{% if not board %}
+<div class='container'>
+	<br><div class="alert alert-danger" role="alert">
+		<h4>ERROR 404</h4> We could not find a board with the specified slug <a href="{% url 'forum-home' %}">Click here to go to the home page</a>
+	</div>
+</div>
+{% else %}
+<div class="container">
+<br><nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'forum-home' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{board.title}}</li>
+</ol></nav><br>
+{% if posts %}
+	{% for post in posts %}
+			<div class="card">
+			  <div class="card-body">
+			  <div class="row">
+			    <div class="col-sm">
+			    	<a href="{% url 'postdisplay' board.slug post.id %}">{{post.title}}</a><br>{{post.content}}
+			   		<p><small>posted by {{post.author.username}} on {{post.release_date}}</small></p>
+			    </div>
+			    <div class="col-sm">
+			     Total replies: 0 <br>
+			     Views: 0 <br>
+			     Last activity: 19 sep
+			    </div>
+			  </div>
+			  </div>
+			</div>
+	{% endfor %}
+{% else %}
+	<div class='card'>
+		<div class='card-body'>This board is empty <a href="{% url 'forum-home' %}">click here</a> to go back to the home-page</div>
+	</div>
+{% endif %}
+</div>
+{% endif %}
+
+
+{% endblock content %}

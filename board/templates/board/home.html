@@ -1,0 +1,27 @@
+{% extends "board/base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+<br><nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav><br>
+
+{% for board in boards %}
+<div class='row'>
+	<div class='col-sm'>
+		<h4><a href="{% url 'forumdisplay' board.slug %}">{{board.title}}</a></h4>
+		<p>{{board.description}}</p>
+	</div>
+	<div class='col-sm'>
+		Latest posts:
+	</div>
+</div>
+<hr>
+{% endfor %}
+</div>
+
+{% endblock content %}

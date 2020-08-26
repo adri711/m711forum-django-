@@ -1,0 +1,16 @@
+{% extends "board/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+<div class='container'>
+	<div class='card'>
+		<div class='card-body'>
+			{% if user.is_authenticated %}
+				<p>You're already logged in.</p>
+			{% else %}
+				<form method=POST>{% csrf_token %}{{form|crispy}}<input type=submit></form>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock content %}

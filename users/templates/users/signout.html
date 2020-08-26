@@ -1,0 +1,12 @@
+{% extends "board/base.html" %}
+{% block content %}
+
+<br><br><div class='container'>
+	<div class='card'>
+		<div class='card-body'>
+			<div role='alert'>You have successfuly logged out <a href="{% url 'forum-home' %}">click here</a> to go to the home-page.</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
