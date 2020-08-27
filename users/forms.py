@@ -21,6 +21,10 @@ class UserRegistrationForm(forms.ModelForm):
 		cleaned_data = super(UserRegistrationForm, self).clean()
 		password_input = cleaned_data.get('password')
 		password_valid = cleaned_data.get('password_validation')
+		email_input = cleaned_data.get('email')
 
 		if password_input != password_valid:
 			raise forms.ValidationError("Passwords don't match.")
+
+		if User.objects.all().filter(email=email_input):
+			raise forms.ValidationError("This email is already registered.")

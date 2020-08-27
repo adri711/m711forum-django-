@@ -1,0 +1,16 @@
+{% extends "board/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class='container' style='margin-top: 20px'>
+	{% if not error %}
+		<form method=POST>
+			{% csrf_token %}
+			{{post_create_form|crispy}}
+			<input type=submit>
+		</form>
+	{% else %}
+		<h4>ERROR 404</h4> We could not find a board with the specified slug <a href="{% url 'forum-home' %}">Click here to go to the home page</a>
+	{% endif %}
+</div>
+{% endblock content %}

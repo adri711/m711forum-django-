@@ -1,4 +1,6 @@
 {% extends "board/base.html" %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="container">
@@ -25,7 +27,36 @@
 			</div>
 		</div>
 	</div>
+
+	{% if replies %}
+		{% for reply in replies %}
+			<div class='card'>
+				<div class='card-body'>
+					<div class='row'>
+						<div class='col-md-2'>
+							<a href="#">{{reply.author.username}}</a> <br> {{reply.author.groups}} <br>
+							<img src='https://www.w3schools.com/howto/img_avatar.png' width=100 height=100>
+						</div>
+						<div class='col-md-9'>
+							<small>Written on {{reply.release_date}}</small>
+							<hr>{{reply.content}}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
+
 </div>
 {% endif %}
 
+
+
+<div class='container'>
+	<form method='POST'>
+		{% csrf_token %}
+		{{form|crispy}}
+		<input type='submit'>
+	</form>
+</div>
 {% endblock content %}

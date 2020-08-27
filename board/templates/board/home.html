@@ -18,6 +18,13 @@
 	</div>
 	<div class='col-sm'>
 		Latest posts:
+		{% if board.latest_posts %}
+			{% for post in board.latest_posts %}
+				<br><small><a href='{% url "postdisplay" board.slug post.pk %}'>{{post.title}}</a></small>
+			{% endfor %}
+		{% else %}
+			<small>None</small>
+		{% endif %}
 	</div>
 </div>
 <hr>

@@ -4,3 +4,5 @@ from . import models
 admin.site.register(models.board)
 
 admin.site.register(models.post)
+
+admin.site.register(models.reply)

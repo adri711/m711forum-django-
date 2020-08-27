@@ -14,6 +14,8 @@
     <li class="breadcrumb-item"><a href="{% url 'forum-home' %}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{board.title}}</li>
 </ol></nav><br>
+<a class="btn btn-outline-secondary" href="{% url 'createpost' board.slug %}" role="button" style='margin-top: -16px; margin-bottom: 12px'>Create a post</a>
+
 {% if posts %}
 	{% for post in posts %}
 			<div class="card">
@@ -24,9 +26,9 @@
 			   		<p><small>posted by {{post.author.username}} on {{post.release_date}}</small></p>
 			    </div>
 			    <div class="col-sm">
-			     Total replies: 0 <br>
-			     Views: 0 <br>
-			     Last activity: 19 sep
+			     Total replies: {{post.reply_count}} <br>
+			     Views: {{post.views}} <br>
+				 Last activity: {{post.last_activity}}
 			    </div>
 			  </div>
 			  </div>
