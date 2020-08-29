@@ -1,11 +1,11 @@
 # m711forum-django-
  A basic/minimalistic forum software written in python and django
 
-##Dependencies
+## Dependencies
 Python3
 Django3.1
 Pillow
-##Installation
+## Installation
 1. Install the latest python3 version https://www.python.org/
 2. Clone repository
 ```
