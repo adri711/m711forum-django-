@@ -3,7 +3,9 @@
 
 ## Dependencies
 Python3
+
 Django3.1
+
 Pillow
 ## Installation
 1. Install the latest python3 version https://www.python.org/
