@@ -49,9 +49,7 @@
 
 </div>
 {% endif %}
-
-
-
+{% if user.is_authenticated %}
 <div class='container'>
 	<form method='POST'>
 		{% csrf_token %}
@@ -59,4 +57,5 @@
 		<input type='submit'>
 	</form>
 </div>
+{% endif %}
 {% endblock content %}

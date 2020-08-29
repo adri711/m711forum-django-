@@ -11,7 +11,9 @@ def home(request):
 	return render(request, "board/home.html", context)
 
 def alter_posts(posts_list):
+
 	for each_post in posts_list:
+
 		each_post.content = each_post.content[:50] + '...'
 
 def forumdisplay(request, boardslug=None):
@@ -27,7 +29,6 @@ def forumdisplay(request, boardslug=None):
 			pass
 	else:
 		pass
-
 	return render(request, "board/forumdisplay.html", context)
 
 def postdisplay(request, boardslug, postid):
@@ -37,10 +38,13 @@ def postdisplay(request, boardslug, postid):
 	context = { 'post': requested_post, 'replies': replies }
 
 	if request.user.is_authenticated:
+
 		requested_post.views+=1
 		requested_post.save()
 		context['form'] = ReplyForm(request.POST)
+
 		if context['form'].is_valid():
+
 			obj_pointer = post.objects.all().filter(pk=postid).first()
 			context['form'].clean()
 			new_reply = reply(content=request.POST['reply_content'], author=request.user, reply_to=obj_pointer)
@@ -48,7 +52,7 @@ def postdisplay(request, boardslug, postid):
 			obj_pointer.last_activity = timezone.now()
 			obj_pointer.save()
 			return redirect('forum-home')
-
+		
 	return render(request, "board/postdisplay.html", context)
 
 def createpost(request, boardslug):
