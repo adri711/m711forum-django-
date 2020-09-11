@@ -26,6 +26,8 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+## Pictures
+
 ![alt text](screenshots/screenshot.PNG)
 
 ![alt text](screenshots/screenshot1.PNG)
