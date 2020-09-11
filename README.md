@@ -26,3 +26,12 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+![alt text](screenshots/screenshot.PNG)
+
+![alt text](screenshots/screenshot1.PNG)
+
+![alt text](screenshots/screenshot2.PNG)
+
+![alt text](screenshots/screenshot3.PNG)
+
+![alt text](screenshots/screenshot4.PNG)
